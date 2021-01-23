@@ -1,0 +1,216 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Marix Studios</title>
+    <link rel="stylesheet" href="index.css" />
+  </head>
+
+  <body>
+    <header class="header-container">
+      <nav class="nav container">
+        <a href="#home" class="logo">
+          <h1>MARIX STUDIOS</h1>
+        </a>
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="#about" class="nav-link"> ABOUT </a>
+          </li>
+          <li class="nav-item">
+            <a href="#projects" class="nav-link"> PROJECTS </a>
+          </li>
+          <li class="nav-item">
+            <a href="#contact" class="nav-link"> CONTACT </a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <div class="wrapper">
+      <section class="screen" id="home">
+        <div class="container">
+          <video
+            class="home__background-video"
+            src="blurry_vid_1.mp4"
+            muted
+            loop
+            autoplay
+          ></video>
+          <div class="home__overlay"></div>
+
+          <div class="content home__content">
+            <h1 class="home__title">
+              We help brands & businesses stand out in the ever-changing digital
+              landscape.
+            </h1>
+            <p>
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quisquam
+              repellat nemo illo molestias, totam eos? Quae fugiat labore culpa
+              doloribus?
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="screen" id="about">
+        <div class="container">
+          <h1 class="about__title section-title">About Us</h1>
+          <p class="secondary-title">
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+            Reprehenderit ducimus exercitationem amet illum quae nam doloribus
+            nemo perferendis vero? Consequatur.
+          </p>
+
+          <p class="secondary-title">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat
+            consequuntur recusandae, facilis eaque doloremque nemo vitae
+            pariatur exercitationem? Corrupti, nobis delectus! Iste, nobis.
+            Minima dolores dolor officia quas veritatis dolorem?
+          </p>
+          <div class="about__gallery sm-margin-top">
+            <div class="gallery__row row">
+              <div class="gallery__text text-group">
+                We deliver elegant and effective user interfaces. Lorem ipsum
+                dolor sit amet consectetur adipisicing elit. Quibusdam, iste!
+              </div>
+              <img src="images/table_meeting.jpg" alt="" class="grid-image" />
+            </div>
+
+            <div class="gallery__row row">
+              <div class="gallery__text text-group order-2">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Quibusdam, iste!2
+              </div>
+              <!-- <div class="gallery__image grid-image">
+                <img src="images/working_zoomed.jpg" alt="" />
+              </div> -->
+              <img
+                src="images/working_zoomed.jpg"
+                alt=""
+                class="grid-image order-1"
+              />
+            </div>
+
+            <div class="gallery__row row">
+              <div class="gallery__text text-group order-1">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Quibusdam, iste!2
+              </div>
+              <!-- <div class="gallery__image grid-image">
+                  <img src="images/working_zoomed.jpg" alt="" />
+                </div> -->
+              <img
+                src="images/table_meeting.jpg"
+                alt=""
+                class="grid-image order-2"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="screen" id="projects">
+        <div class="container">
+          <h1 class="section-title">Some of our work</h1>
+          <div class="projects-grid grid">
+            <div class="projects__project-image--vertical-image">
+              <img
+                src="images/table_meeting.jpg"
+                alt=""
+                class="project-image"
+              />
+            </div>
+            <div class="projects__project-image--wider-horiz-image">
+              <img
+                src="images/table_meeting.jpg"
+                alt=""
+                class="project-image"
+              />
+            </div>
+
+            <div class="projects__main">
+              <img
+                src="images/table_meeting.jpg"
+                alt=""
+                class="project-image"
+              />
+              <img
+                src="images/table_meeting.jpg"
+                alt=""
+                class="project-image"
+              />
+              <img
+                src="images/table_meeting.jpg"
+                alt=""
+                class="project-image"
+              />
+              <img
+                src="images/table_meeting.jpg"
+                alt=""
+                class="project-image"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="screen" id="contact">
+        <div class="container">
+          <h1 class="section-title">Contact — Get in touch</h1>
+          <p class="secondary-title sm-margin-top">
+            Got a project to discuss? Do you have a business opportunity, or are
+            you just a creative looking to collaborate?
+            <br />
+            Get in touch.
+          </p>
+
+          <form class="form sm-margin-top">
+            <div class="form-control">
+              <input type="text" placeholder="First name" />
+            </div>
+            <div class="form-control">
+              <input type="text" placeholder="Last name" />
+            </div>
+            <div class="form-control">
+              <input
+                type="text"
+                name=""
+                id="email"
+                placeholder="email@company.com"
+              />
+              <small>Error message</small>
+            </div>
+            <div class="form-control">
+              <textarea
+                name=""
+                cols="10"
+                rows="5"
+                placeholder="A few sentences about the product, the main goal, and our role in this project."
+              ></textarea>
+            </div>
+            <button>Submit</button>
+          </form>
+        </div>
+      </section>
+    </div>
+    <!-- 
+        1. need helper font size classes & title classes
+        2. need to figure out how to make the grid gallery with different size images.
+        --general-font
+        --heading
+     -->
+  </body>
+  <!-- FULL GSAP LIB -->
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/gsap.min.js"
+    integrity="sha512-1dalHDkG9EtcOmCnoCjiwQ/HEB5SDNqw8d4G2MKoNwjiwMNeBAkudsBCmSlMnXdsH8Bm0mOd3tl/6nL5y0bMaQ=="
+    crossorigin="anonymous"
+  ></script>
+  <!-- GSAP SCROLL TRIGGER ONLY -->
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/ScrollTrigger.min.js"
+    integrity="sha512-QcYm1q7RbnXmwY7HJ0H7938IS0MalTPYqGUF0fIwQgEjMBt2tqjDBt+R5I+ppdwEohjMdHnFU0H+RxmrGQ8qcg=="
+    crossorigin="anonymous"
+  ></script>
+  <script src="js/index.js"></script>
+</html>

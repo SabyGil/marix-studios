@@ -1,0 +1,397 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+:root {
+  --general-font-size: 2rem;
+  --primary-title-font-size: 5rem;
+  --secondary-title-font-size: 3rem;
+  --main-font-family-light: 'Franklin Gothic Medium', 'Arial Narrow', Arial,
+    sans-serif;
+  --main-font-family-medium: 'Whitney Medium', sans-serif;
+  --main-font-family-bold: 'Whitney Bold', sans-serif;
+  --num-of-grid-columns: 4;
+  --section-spacing: 5.6rem 2.4rem;
+  /* --container-width: 126rem; */
+  --container-width: 120rem;
+  --general-font-color: white;
+  --hover-font-color: #e0115f;
+  --off-white-clr: #f6f6f6;
+  --image-height: 35vh;
+  --projects-parent-grid-gap: 1rem;
+  --projects-sub-grid-gap: 1rem;
+  --font-semi: 500;
+}
+
+body {
+  /* position: relative; */
+  height: 100vh;
+  overflow: hidden;
+  background-color: var(--off-white-clr);
+}
+
+a {
+  text-decoration: none;
+}
+
+ul li {
+  list-style: none;
+}
+
+/*
+ * Remove the gap between audio, canvas, iframes,
+ * images, videos and the bottom of their containers:
+ * https://github.com/h5bp/html5-boilerplate/issues/440
+ */
+audio,
+canvas,
+iframe,
+img,
+svg,
+video {
+  vertical-align: middle;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Utility */
+
+.sm-margin-top {
+  margin-top: 2rem;
+}
+
+.section-title {
+  font-size: var(--primary-title-font-size);
+}
+
+.secondary-title {
+  font-size: var(--secondary-title-font-size);
+}
+
+/* .nav-container a[href='#home'] {
+  border: 4px solid red;
+} */
+
+.wrapper {
+  height: 100%;
+  width: 100%;
+  z-index: 50;
+  /* CSS SMOOTH SCROLL */
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+  scroll-snap-type: y mandatory;
+}
+
+.container {
+  margin: 0 auto;
+  /* width: var(--container-width); */
+  max-width: var(--container-width);
+}
+
+.header-container {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  box-shadow: 0 1px 4px rgba(146, 161, 176, 0.15);
+}
+
+.nav {
+  font-weight: var(--font-semi);
+  height: 5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  color: var(--general-font-color);
+  font-size: var(--general-font-size);
+}
+
+.nav-list {
+  display: flex;
+  justify-content: space-evenly;
+  width: 50rem;
+}
+
+.nav-link {
+  color: var(--general-font-color);
+  font-size: var(--general-font-size);
+}
+
+.nav-link:hover {
+  color: var(--hover-font-color);
+}
+
+.screen {
+  height: 100vh;
+  padding-top: 5rem;
+  scroll-snap-align: center;
+}
+
+.active {
+  color: var(--hover-font-color);
+}
+
+#home {
+  position: relative;
+}
+.home__background-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.8;
+  /* z-index: 1; */
+}
+
+.home__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* background: #03a9f4; */
+  /* background: #b7dbec; */
+  background: rgba(0, 0, 0, 0.5);
+  mix-blend-mode: overlay;
+  /* z-index: 5; */
+}
+
+.content {
+  position: relative;
+  z-index: 10;
+}
+.home__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  color: var(--general-font-color);
+}
+.home__title {
+  font-size: var(--primary-title-font-size);
+  font-weight: 700;
+  text-align: center;
+}
+
+.home__content p {
+  font-size: var(--general-font-size);
+}
+
+#about {
+  overflow-y: scroll;
+}
+
+.heading-secondary {
+  /* to be cont.. */
+}
+.about__title {
+}
+
+.about p {
+  font-size: var(--general-font-color);
+}
+/* <-----------> */
+
+.row {
+  display: grid;
+  grid-template-columns: repeat(var(--num-of-grid-columns), 1fr);
+  /* gap: 0 2rem; */
+  /* padding: var(--section-spacing); */
+}
+
+.text-group {
+  grid-column: span 2;
+}
+
+.grid-image {
+  grid-column: span 2;
+  /* height: 25vh;
+  width: 100%; */
+  /* position: absolute; */
+
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 25rem;
+  object-fit: cover;
+  object-position: 50% 50%;
+  /* opacity: 0.8; */
+}
+
+.order-1 {
+  order: 1;
+}
+
+.order-2 {
+  order: 2;
+}
+/* <-----------> */
+
+.gallery__row {
+  position: relative;
+  /*
+    flex - shorthand for flex-grow, flex-shrink and flex-basis combined
+    The default is 0 1 auto, but if you set it with a single number value, it’s like 1 0
+  */
+}
+
+.gallery__text {
+  font-size: var(--general-font-size);
+}
+/* <-----------> */
+#projects {
+  overflow-y: scroll;
+}
+.projects-grid {
+  /*
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  grid-gap: 0.5rem;
+  justify-items: center;
+*/
+  display: grid;
+  grid-template-columns: 30rem 1fr 1fr;
+  grid-template-rows: 30rem 1fr;
+  /* grid-gap: 1rem; */
+  grid-gap: var(--projects-sub-grid-gap);
+}
+.project {
+  /* display: block; */
+}
+
+.project-image {
+  width: 30rem;
+  height: 25rem;
+  object-fit: cover;
+  object-position: 50% 50%;
+  /* grid-column: span 2; */
+}
+
+/* <-----------> */
+.projects__project-image--vertical-image {
+  grid-column: 1/2;
+  grid-row: 1/ -1;
+}
+
+.projects__project-image--vertical-image img {
+  height: 100%;
+}
+
+.projects__project-image--wider-horiz-image {
+  grid-column: 2 / span 2;
+}
+
+.projects__project-image--wider-horiz-image img {
+  width: 100%;
+  height: 100%;
+}
+
+.projects__main {
+  grid-column: 2 / -1;
+  gap: var(--projects-sub-grid-gap);
+
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.projects__main > img {
+  /* flex: 0 calc(50% - var(--gap)); */
+  flex: 1 1 16rem;
+}
+
+.projects-group {
+  display: flex;
+}
+
+/* <-----------> */
+/* section 4 */
+.contact__cta {
+  /* font-size: var(--secondary-title-font-size); */
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-control {
+  padding-bottom: 2rem;
+  /* position: relative; */
+}
+
+.form-control input {
+  border: 2px solid #f0f0f0;
+  border-radius: 4px;
+  display: block;
+  width: 60rem;
+  padding: 1rem;
+  font-size: 1.4rem;
+}
+
+.form-control textarea {
+  border: 2px solid #f0f0f0;
+  border-radius: 4px;
+  padding: 1rem;
+  width: 30rem;
+  font-size: 1.4rem;
+  color: black;
+}
+
+.form-control input:focus {
+  outline: 0;
+  border-color: #777;
+}
+
+.form-control.success input {
+  border-color: var(--success-color);
+}
+
+.form-control.errpr input {
+  border-color: var(--error-color);
+}
+
+.form-control small {
+  color: var(--error-color);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  visibility: hidden;
+  /* visibility hidden just makes it invisible */
+}
+
+.form-control.error small {
+  visibility: visible;
+}
+
+.form button {
+  cursor: pointer;
+  background-color: #14181a;
+  border: none;
+  border-radius: 4px;
+  color: #fff;
+  font-size: 1.6rem;
+  padding: 1rem;
+  width: min-content;
+  align-self: center;
+  box-shadow: 0 1px 4px rgba(146, 161, 176, 0.15);
+}
+
+.form button:hover {
+  color: var(--hover-font-color);
+}
