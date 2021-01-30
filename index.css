@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@700;800&display=swap');
+
 * {
   margin: 0;
   padding: 0;
@@ -27,6 +29,10 @@ html {
   --projects-parent-grid-gap: 1rem;
   --projects-sub-grid-gap: 1rem;
   --font-semi: 500;
+  --easing: cubic-bezier(0.5, 0.7, 0.4, 1);
+  --logo-font: 'Raleway', sans-serif;
+  --modal-duration: 1s;
+  --modal-color: #428bca;
 }
 
 body {
@@ -34,6 +40,7 @@ body {
   height: 100vh;
   overflow: hidden;
   background-color: var(--off-white-clr);
+  font-family: var(--logo-font);
 }
 
 a {
@@ -81,14 +88,20 @@ img {
   border: 4px solid red;
 } */
 
+.blue {
+  border: 5px solid blue;
+}
+
 .wrapper {
   height: 100%;
   width: 100%;
   z-index: 50;
   /* CSS SMOOTH SCROLL */
-  overflow-y: scroll;
+  overflow-y: auto;
   scroll-behavior: smooth;
   scroll-snap-type: y mandatory;
+  /* border: 5px solid orange; */
+  /* background-color: red; */
 }
 
 .container {
@@ -114,9 +127,35 @@ img {
   align-items: center;
 }
 
-.logo {
+.logo-text {
   color: var(--general-font-color);
-  font-size: var(--general-font-size);
+  /* font-size: var(--general-font-size); */
+  font-size: 3rem;
+  font-weight: 800;
+}
+
+.logo-img {
+  opacity: 0;
+  font-family: var(--logo-font);
+  font-size: 4rem;
+  position: absolute;
+  left: 2.5vw;
+  /* outline: rgb(226, 20, 20); */
+}
+
+/* reveal logo & move burger when user scrolls */
+.has-scrolled .burger {
+  transform: translateX(100%);
+}
+
+.has-scrolled .logo-text {
+  opacity: 0;
+}
+
+.has-scrolled .logo-img {
+  /* border: 5px solid orange; */
+  /* z-index: 20; */
+  opacity: 1;
 }
 
 .nav-list {
@@ -128,16 +167,58 @@ img {
 .nav-link {
   color: var(--general-font-color);
   font-size: var(--general-font-size);
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  display: block;
+
+  text-transform: uppercase;
+  letter-spacing: 0.1vw;
+}
+
+.has-scrolled .nav-link:not(.active) {
+  color: black;
 }
 
 .nav-link:hover {
-  color: var(--hover-font-color);
+  /* color: var(--hover-font-color); */
 }
+
+/*
+  NAV ANIMATION
+
+*/
+
+.nav-list .nav-link::after {
+  display: block;
+  content: '';
+  height: 2px;
+  background-color: white;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  transform: translateX(-101%);
+}
+
+.nav-list .nav-link:hover::after {
+  transition: transform 0.3s var(--easing);
+  transform: translateX(0);
+}
+.nav-list .nav-link.animate-out::after {
+  transition: transform 0.3s var(--easing);
+  transform: translateX(100%);
+}
+
+/* <-----> */
 
 .screen {
   height: 100vh;
   padding-top: 5rem;
+  padding-bottom: 0.2rem;
+  /* margin-bottom: 5rem; */
+  /* margin-top: 5rem; */
   scroll-snap-align: center;
+  overflow: auto;
 }
 
 .active {
@@ -259,16 +340,21 @@ img {
   overflow-y: scroll;
 }
 .projects-grid {
+  /* position: relative; */
+  /* border: 2px solid blue; */
+
   /*
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
   grid-gap: 0.5rem;
   justify-items: center;
 */
+
   display: grid;
-  grid-template-columns: 30rem 1fr 1fr;
-  grid-template-rows: 30rem 1fr;
-  /* grid-gap: 1rem; */
+  grid-template-columns: repeat(8, 1fr);
+  /* grid-template-rows: repeat(8, 5vw); */
+  /* grid-template-rows: repeat(8, minmax(5rem, 10rem)); */
+  grid-template-rows: repeat(8, 5vw);
   grid-gap: var(--projects-sub-grid-gap);
 }
 .project {
@@ -276,30 +362,73 @@ img {
 }
 
 .project-image {
-  width: 30rem;
-  height: 25rem;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
-  object-position: 50% 50%;
+
+  /* height: 25rem; */
+  /* width: 30rem;
+  object-fit: cover;
+  object-position: 50% 50%; */
   /* grid-column: span 2; */
 }
 
 /* <-----------> */
-.projects__project-image--vertical-image {
-  grid-column: 1/2;
+.projects__item {
+  cursor: pointer;
+}
+.projects__item:hover {
+  /* -webkit-box-shadow: 1px 0px 8px 2px #000000;
+  box-shadow: 1px 0px 8px 2px #000000; */
+  box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.17);
+  transform: translateX(0.75%);
+}
+
+.projects__item--1 {
+  grid-column: 1 / span 2;
   grid-row: 1/ -1;
 }
 
+.projects__item--2 {
+  grid-column: 3 / -1;
+  grid-row: 1 / span 2;
+}
+
+.projects__item--3 {
+  grid-column: 3 / span 3;
+  grid-row: 3 / span 3;
+  /* border: 11px solid rgb(153, 168, 153); */
+}
+
+.projects__item--4 {
+  grid-column: 6 / -1;
+  grid-row: 3 / span 3;
+}
+
+.projects__item--5 {
+  grid-column: 3 / span 3;
+  grid-row: 6 / span 3;
+}
+
+.projects__item--6 {
+  grid-column: 6 / -1;
+  grid-row: 6 / span 3;
+}
+
 .projects__project-image--vertical-image img {
-  height: 100%;
+  /* height: 100%; */
 }
 
 .projects__project-image--wider-horiz-image {
   grid-column: 2 / span 2;
+  grid-row: 1 / 2;
+  border: 2px solid blue;
 }
 
 .projects__project-image--wider-horiz-image img {
   width: 100%;
-  height: 100%;
+  /* height: 100%; */
+  height: 10rem;
 }
 
 .projects__main {
@@ -394,4 +523,87 @@ img {
 
 .form button:hover {
   color: var(--hover-font-color);
+}
+
+/* MODAL STYLES */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1001;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+  margin: 5rem auto;
+  width: 80%;
+  height: 100%;
+  box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.17);
+  animation-name: modalopen;
+  animation-duration: var(--modal-duration);
+  border: 2px solid orange;
+  background-color: rgb(207, 205, 205);
+  display: grid;
+  grid-template-columns: 20rem 1fr;
+  /* grid-template-rows: 1fr 1fr; */
+  grid-template-rows: repeat(8, 1fr);
+}
+
+.modal__sidebar {
+  border: 2px solid blue;
+  grid-column: 1 / 2;
+  grid-row: 1 / -1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal__main {
+  position: relative;
+  border: 2px solid blue;
+  grid-column: 2 / -1;
+  grid-row: 1 / -1;
+}
+
+.modal__main h2 {
+  margin-top: 3rem;
+  text-align: center;
+  font-size: var(--secondary-title-font-size);
+}
+
+.modal__text-group {
+  padding: 3rem;
+}
+
+.modal__text-group p {
+  /* border: 2px solid green; */
+  font-size: var(--general-font-size);
+}
+
+.modal__text-group h4 {
+  /* border: 2px solid green; */
+  margin-bottom: 1.5rem;
+}
+
+.close {
+  position: absolute;
+  right: -1.5rem;
+  top: -4rem;
+  padding: 0;
+  /* left: 0; */
+  color: #ccc;
+  font-size: 5.5rem;
+  color: #fff;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
 }
