@@ -29,7 +29,7 @@ function initNavigation() {
       targets: '.header-container',
       className: 'has-scrolled',
     },
-    markers: true,
+    // markers: true,
   });
 }
 

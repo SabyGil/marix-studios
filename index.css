@@ -153,9 +153,9 @@ img {
 }
 
 .has-scrolled .logo-img {
-  /* border: 5px solid orange; */
   /* z-index: 20; */
   opacity: 1;
+  color: black;
 }
 
 .nav-list {
@@ -545,7 +545,7 @@ img {
   box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.17);
   animation-name: modalopen;
   animation-duration: var(--modal-duration);
-  border: 2px solid orange;
+  /* border: 2px solid orange; */
   background-color: rgb(207, 205, 205);
   display: grid;
   grid-template-columns: 20rem 1fr;
@@ -554,7 +554,7 @@ img {
 }
 
 .modal__sidebar {
-  border: 2px solid blue;
+  /* border: 2px solid blue; */
   grid-column: 1 / 2;
   grid-row: 1 / -1;
   display: flex;
@@ -565,7 +565,7 @@ img {
 
 .modal__main {
   position: relative;
-  border: 2px solid blue;
+  /* border: 2px solid blue; */
   grid-column: 2 / -1;
   grid-row: 1 / -1;
 }
